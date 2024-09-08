@@ -7,7 +7,7 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 - Simulation d'un feu tricolore avec des LEDs.
 - Utilisation de `millis()` pour un timing non bloquant.
 - Facilement configurable pour ajuster les délais de chaque signal.
-- Le projet s'appuie sur la librairie TraficLight et ne gere que des instance de feu issu de cette librairie.
+- Le projet s'appuie sur la librairie TraficLight et ne gere que des instances de feu issues de cette librairie.
 
 ## Matériel nécessaire
 
