@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "libraries/TrafficLight/TrafficLight.h"
+#include "TrafficLight.h"
 
 // Declaration des variables pour le choix des fonctions
 const int _PINBTN = 5;   // Pin ou le bouton est connecte

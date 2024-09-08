@@ -229,7 +229,8 @@ void TrafficLight::blinkOrange(unsigned long duration)
   if (currentMillis - _startMillis < duration)
   {
     if (currentMillis - _previousMillis >= 1000)
-    { // Changer l'état toutes les secondes
+    { 
+      // Changer l'état toutes les secondes
       _previousMillis = currentMillis;
       _orangeState = !_orangeState; // Inverser l'état
       digitalWrite(_orangePin, _orangeState ? HIGH : LOW);
