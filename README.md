@@ -16,10 +16,15 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 - Breadboard et fils de connexion
 
 ## Schéma de câblage
-
-- LED rouge : Broche 9
-- LED jaune : Broche 10
-- LED verte : Broche 11
+Feu1
+- LED rouge : Broche 2
+- LED jaune : Broche 3
+- LED verte : Broche 4
+Feu2
+- LED rouge : Broche 8
+- LED jaune : Broche 9
+- LED verte : Broche 10
+  
 - GND : Connecter les GND des LEDs à la broche GND de l’Arduino.
 
 ## Code
