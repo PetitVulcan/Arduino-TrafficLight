@@ -40,15 +40,15 @@ void TrafficLight::cycle(int redTime, int orangeTime, int greenTime)
 {
   unsigned long currentMillis = millis();
   static int _currentStep = 0;
-  int remainingTime = (millis() - _previousMillis) / 1000;
+  
 
   switch (_currentStep)
   {
   case 0:
     green();
-     if (currentMillis - _previousLogMillis >= 1000 && _logState)
+    if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 0: Feu Vert", greenTime / 1000 - remainingTime);
+      logPhase("Phase 0: Feu Vert", greenTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= greenTime)
@@ -60,9 +60,9 @@ void TrafficLight::cycle(int redTime, int orangeTime, int greenTime)
 
   case 1:
     orange();
-     if (currentMillis - _previousLogMillis >= 1000 && _logState)
+    if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 1: Feu Orange", greenTime / 1000 - remainingTime);
+      logPhase("Phase 1: Feu Orange", greenTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= orangeTime)
@@ -74,9 +74,9 @@ void TrafficLight::cycle(int redTime, int orangeTime, int greenTime)
 
   case 2:
     red();
-     if (currentMillis - _previousLogMillis >= 1000 && _logState)
+    if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 2: Feu Rouge", greenTime / 1000 - remainingTime);
+      logPhase("Phase 2: Feu Rouge", greenTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= redTime)
@@ -88,21 +88,11 @@ void TrafficLight::cycle(int redTime, int orangeTime, int greenTime)
   }
 }
 
-// Fonction utilitaire pour afficher l'état et le temps restant dans le moniteur série
-void TrafficLight::logPhase(const char *phaseName, int remainingTime)
-{
-  Serial.print(phaseName);
-  Serial.print(" - Restant : ");
-  Serial.print(remainingTime);
-  Serial.println(" sec");
-}
-
-// Fonction executant le fonctionnement syncronisé des feux d'intersection de deux rues 
+// Fonction executant le fonctionnement syncronisé des feux d'intersection de deux rues
 void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, int redTime, int orangeTime, int greenTime, int pauseTime)
 {
   unsigned long currentMillis = millis();
   static int _currentStep = 0;
-  int remainingTime = (millis() - _previousMillis) / 1000;
 
   switch (_currentStep)
   {
@@ -112,7 +102,7 @@ void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, 
 
     if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 0: Rue 1 Vert, Rue 2 Rouge", greenTime / 1000 - remainingTime);
+      logPhase("Phase 0: Rue 1 Vert, Rue 2 Rouge", greenTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= greenTime)
@@ -128,7 +118,7 @@ void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, 
 
     if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 1: Rue 1 Orange, Rue 2 Rouge", orangeTime / 1000 - remainingTime);
+      logPhase("Phase 1: Rue 1 Orange, Rue 2 Rouge", orangeTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= orangeTime)
@@ -144,7 +134,7 @@ void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, 
 
     if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 2: Les deux rues Rouge", pauseTime / 1000 - remainingTime);
+      logPhase("Phase 2: Les deux rues Rouge", pauseTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= pauseTime)
@@ -160,7 +150,7 @@ void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, 
 
     if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 3: Rue 1 Rouge, Rue 2 Vert", greenTime / 1000 - remainingTime);
+      logPhase("Phase 3: Rue 1 Rouge, Rue 2 Vert", greenTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= greenTime)
@@ -176,7 +166,7 @@ void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, 
 
     if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 4: Rue 1 Rouge, Rue 2 Orange", orangeTime / 1000 - remainingTime);
+      logPhase("Phase 4: Rue 1 Rouge, Rue 2 Orange", orangeTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
 
@@ -193,7 +183,7 @@ void TrafficLight::runIntersectionCycle(TrafficLight road1, TrafficLight road2, 
 
     if (currentMillis - _previousLogMillis >= 1000 && _logState)
     {
-      logPhase("Phase 5: Les deux rues Rouge", pauseTime / 1000 - remainingTime);
+      logPhase("Phase 5: Les deux rues Rouge", pauseTime / 1000 - computeRemainingTime());
       _previousLogMillis = currentMillis;
     }
     if (currentMillis - _previousMillis >= pauseTime)
@@ -215,14 +205,18 @@ void TrafficLight::init()
   delay(500);
 }
 
-void TrafficLight::allOff()
+// Fonction utilitaire pour afficher l'état et le temps restant dans le moniteur série
+void TrafficLight::logPhase(const char *phaseName, int remainingTime)
 {
-  setLights(false, false, false);
+  Serial.print(phaseName);
+  Serial.print(" - Restant : ");
+  Serial.print(remainingTime);
+  Serial.println(" sec");
 }
 
 void TrafficLight::blinkOrange(unsigned long duration)
 {
-  
+
   unsigned long currentMillis = millis();
 
   // Initialisation de la période de clignotement
@@ -248,10 +242,20 @@ void TrafficLight::blinkOrange(unsigned long duration)
     _startMillis = 0; // Réinitialiser pour le prochain clignotement
   }
 }
+// Methode de calcul du temp ecoulé depuis le dernier log
+int TrafficLight::computeRemainingTime()
+{
+  return (millis() - _previousMillis) / 1000;
+}
 
 void TrafficLight::setLights(bool redState, bool orangeState, bool greenState)
 {
   digitalWrite(_redPin, redState ? HIGH : LOW);
   digitalWrite(_orangePin, orangeState ? HIGH : LOW);
   digitalWrite(_greenPin, greenState ? HIGH : LOW);
+}
+
+void TrafficLight::allOff()
+{
+  setLights(false, false, false);
 }

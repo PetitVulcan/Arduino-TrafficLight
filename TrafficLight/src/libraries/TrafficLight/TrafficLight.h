@@ -6,40 +6,48 @@
 class TrafficLight
 {
 public:
-  // Constructeur: définit les pins pour les LED orange, verte, et rouge et active/désactive les logs d'état dans le moniteur serie
+  // Constructeur: definit les pins pour les LED orange, verte, et rouge et active/desactive les logs d'etat dans le moniteur serie
   TrafficLight(int orangePin, int greenPin, int redPin, bool logState);
 
-  // Méthodes pour allumer chaque couleur
+  // Methodes pour allumer chaque couleur
   void red();
   void orange();
   void green();
 
-  // Méthode pour passer automatiquement d'un état à l'autre sans bloquer
+  // Methode de test de toute les couleurs du feu
   void init();
+
+  // Methode pour etablir un cycle de feu complet (prend en parametre la duree d'allumage pour chaque couleur)
   void cycle(int redTime, int orangeTime, int greenTime);
+
+  // Methode pour syncroniser les feux de circulation d'une intersection entre deux rues
   void runIntersectionCycle(TrafficLight feuRue1, TrafficLight feuRue2, int redTime, int orangeTime, int greenTime, int pauseTime);
 
-  // Méthode pour éteindre toutes les LED
-  void allOff();
-
-  // Méthode pour loguer l'état des feux dans le moniteur serie
-  void logPhase(const char *phaseName, int remainingTime);
-
-  // Méthode pour faire clignoter la LED orange pour une durée donnée
+  // Methode pour faire clignoter la LED orange pour une duree donnee
   void blinkOrange(unsigned long duration);
 
+  // Methode pour eteindre toutes les LED
+  void allOff();
+
 private:
-  int _redPin;
-  int _orangePin;
-  int _greenPin;
+  int _redPin;                     // pin de raccordement de la led rouge du feu a l'arduino
+  int _orangePin;                  // pin de raccordement de la led orange du feu a l'arduino
+  int _greenPin;                   // pin de raccordement de la led verte du feu a l'arduino
 
-  unsigned long _previousMillis; // Temps précédemment enregistré
-  unsigned long _previousLogMillis; // Temps précédemment enregistré pour le dernier log
-  unsigned long _startMillis;    // Temps de début du clignotement
-  bool _logState;             // État actuel des logs de l'etat du feu dans le moniteur serie
-  bool _orangeState;             // État actuel de la LED orange
+  unsigned long _previousMillis;    // Temps precedemment enregistre
+  unsigned long _previousLogMillis; // Temps precedemment enregistre pour le dernier log
+  unsigned long _startMillis;       // Temps de debut du clignotement
+  bool _logState;                   // Activation des logs de l'etat du feu dans le moniteur serie
+  bool _orangeState;                // Etat actuel de la LED orange
 
+  // Methode pour modifier la couleur a afficher
   void setLights(bool redState, bool orangeState, bool greenState);
+
+  // Methode pour loguer l'etat des feux dans le moniteur serie
+  void logPhase(const char *phaseName, int remainingTime);
+
+  // Methode de calcul du temp ecoulé depuis le dernier log
+  int computeRemainingTime();
 };
 
 #endif
