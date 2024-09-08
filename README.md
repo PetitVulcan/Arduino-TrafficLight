@@ -7,12 +7,13 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 - Simulation d'un feu tricolore avec des LEDs.
 - Utilisation de `millis()` pour un timing non bloquant.
 - Facilement configurable pour ajuster les délais de chaque signal.
+- Le projet s'appuie sur la librairie TraficLight et ne gere que des instance de feu issu de cette librairie.
 
 ## Matériel nécessaire
 
-- Arduino Uno ou similaire
-- 3 LEDs (rouge, jaune, vert)
-- Résistances (220Ω)
+- Arduino Nano ou similaire
+- 6 LEDs (2 rouges, 2 jaunes, 2 vertes)
+- Résistances (150Ω)
 - Breadboard et fils de connexion
 
 ## Schéma de câblage
@@ -20,12 +21,12 @@ Feu1
 - LED rouge : Broche 2
 - LED jaune : Broche 3
 - LED verte : Broche 4
+
 Feu2
 - LED rouge : Broche 8
 - LED jaune : Broche 9
 - LED verte : Broche 10
   
-- GND : Connecter les GND des LEDs à la broche GND de l’Arduino.
 
 ## Code
 
@@ -59,8 +60,8 @@ Clonez ce dépôt :
 ```bash
 git clone https://github.com/PetitVulcan/Arduino-TrafficLight.git
 ```
-1-Ouvrez le fichier TrafficLight.ino dans l'IDE Arduino.
-2-Téléversez le code sur votre carte Arduino.
+- Ouvrez le fichier TrafficLight.cpp dans l'IDE VsCode.
+- Téléversez le code sur votre carte Arduino.
 
 ## Contribution
 Les contributions sont les bienvenues. Pour contribuer :
