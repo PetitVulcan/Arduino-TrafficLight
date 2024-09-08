@@ -18,14 +18,14 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 
 ## Schéma de câblage
 Feu1
-- LED rouge : Broche 2
-- LED jaune : Broche 3
-- LED verte : Broche 4
+- LED orange : Broche 2
+- LED verte : Broche 3
+- LED rouge : Broche 4
 
 Feu2
-- LED rouge : Broche 8
-- LED jaune : Broche 9
-- LED verte : Broche 10
+- LED orange : Broche 8
+- LED verte : Broche 9
+- LED rouge : Broche 10
   
 
 ## Code
