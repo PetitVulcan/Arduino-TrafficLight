@@ -1,3 +1,17 @@
+
+/*
+  |\/|   | _  |
+  |  |(|(|(/_ |)\/
+                /
+                  ___     _   _ _               _
+                 / _ \___| |_(_) |_/\   /\_   _| | ___ __ _ _ __
+                / /_)/ _ \ __| | __\ \ / / | | | |/ __/ _` | '_ \
+               / ___/  __/ |_| | |_ \ V /| |_| | | (_| (_| | | | |
+               \/    \___|\__|_|\__| \_/  \__,_|_|\___\__,_|_| |_|
+
+              TRAFFIC LIGHT v1.0.0@09-2024 - www.petitvulcan.com
+*/
+
 #include <Arduino.h>
 #include "TrafficLight.h"
 
@@ -14,8 +28,8 @@ TrafficLight road2(8, 9, 10, true); // Rue 2
 // Duree des differentes phases
 const int greenTime = 30000; // duree pour le vert
 const int orangeTime = 5000; // duree pour l'orange
-const int redTime = 30000;   // duree où les deux rues sont au rouge
-const int pauseTime = 3000;  // 3 secondes où les deux rues sont au rouge
+const int redTime = 30000;   // duree ou les deux rues sont au rouge
+const int pauseTime = 3000;  // duree ou les deux rues sont au rouge
 
 // Declaration des fonctions locales
 void allOff();

@@ -1,3 +1,17 @@
+
+/*
+  |\/|   | _  |
+  |  |(|(|(/_ |)\/
+                /
+                  ___     _   _ _               _
+                 / _ \___| |_(_) |_/\   /\_   _| | ___ __ _ _ __
+                / /_)/ _ \ __| | __\ \ / / | | | |/ __/ _` | '_ \
+               / ___/  __/ |_| | |_ \ V /| |_| | | (_| (_| | | | |
+               \/    \___|\__|_|\__| \_/  \__,_|_|\___\__,_|_| |_|
+
+              TRAFFIC LIGHT v1.0.0@09-2024 - www.petitvulcan.com
+*/
+
 #include "TrafficLight.h"
 
 TrafficLight::TrafficLight(int orangePin, int greenPin, int redPin, bool logState)
