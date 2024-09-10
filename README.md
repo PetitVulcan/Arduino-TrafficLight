@@ -1,5 +1,10 @@
 # Feu de signalisation avec Arduino
 
+![Vue 3D du Feu Tricolor](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/TrafficLight-1.png)
+
+![Vue 3D du Feu Tricolor](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/TrafficLight.png)![image](https://github.com/user-attachments/assets/c27b71cc-7e14-4479-8527-98cde31b5d3e)
+
+
 Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction `millis()` pour gérer les transitions de manière non bloquante.
 
 ## Fonctionnalités
@@ -26,7 +31,14 @@ Feu2
 - LED orange : Broche 8
 - LED verte : Broche 9
 - LED rouge : Broche 10
-  
+
+## Fichier pour impréssion 3D
+[![Aperçu du modèle 3D - Light Stand](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/stl/LightStand.png)](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/stl/LightStand.stl)
+
+[![Aperçu du modèle 3D - Pole](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/stl/Pole.png)](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/stl/Pole.stl)
+
+[![Aperçu du modèle 3D - Head](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/stl/head.png)](https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/3D/stl/head.stl)
+![image](https://github.com/user-attachments/assets/f5f2721b-ce85-4d4f-a4dc-558c2def58a2)
 
 ## Code
 
