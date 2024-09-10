@@ -7,7 +7,7 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 - Simulation d'un feu tricolore avec des LEDs.
 - Utilisation de `millis()` pour un timing non bloquant.
 - Facilement configurable pour ajuster les délais de chaque signal.
-- Le projet s'appuie sur la librairie TraficLight et ne gere que des instance de feu issu de cette librairie.
+- Le projet s'appuie sur la librairie TraficLight et ne gere que des instances de feu issues de cette librairie.
 
 ## Matériel nécessaire
 
@@ -18,14 +18,14 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 
 ## Schéma de câblage
 Feu1
-- LED rouge : Broche 2
-- LED jaune : Broche 3
-- LED verte : Broche 4
+- LED orange : Broche 2
+- LED verte : Broche 3
+- LED rouge : Broche 4
 
 Feu2
-- LED rouge : Broche 8
-- LED jaune : Broche 9
-- LED verte : Broche 10
+- LED orange : Broche 8
+- LED verte : Broche 9
+- LED rouge : Broche 10
   
 
 ## Code
@@ -36,6 +36,12 @@ Voici le code utilisé pour gérer le feu tricolore :
 // Definir les pins pour les LED des deux feux tricolores
 TrafficLight road1(2, 3, 4, true);  // Rue 1
 TrafficLight road2(8, 9, 10, true); // Rue 2
+
+// Duree des differentes phases
+const int greenTime = 30000; // duree pour le vert
+const int orangeTime = 5000; // duree pour l'orange
+const int redTime = 30000;   // duree où les deux rues sont au rouge
+const int pauseTime = 3000;  // 3 secondes où les deux rues sont au rouge
 
 void setup()
 {
