@@ -19,7 +19,7 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 - Simulation d'un feu tricolore avec des LEDs.
 - Utilisation de `millis()` pour un timing non bloquant.
 - Facilement configurable pour ajuster les délais de chaque phase du cycle d'un feu tricolor.
-- La librairie TraficLight permet de créer des instances de feu et d'organiser la syncronisation des feux d'un carrefour entre deux rues.
+- La librairie [TraficLight](https://github.com/PetitVulcan/ArduinoLibs-TrafficLight) permet de créer des instances de feu et d'organiser la syncronisation des feux d'un carrefour entre deux rues.
 
 ## Matériel nécessaire
 
