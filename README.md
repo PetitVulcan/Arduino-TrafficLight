@@ -41,7 +41,7 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
   </tr>
    <tr>
     <td>
-      16
+      12
     </td>
     <td>
      LEDs (4 rouges, 4 jaunes, 4 vertes)
@@ -49,7 +49,7 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
   </tr>
    <tr>
     <td>
-      16
+      6
     </td>
     <td>
      Résistances (150Ω)
