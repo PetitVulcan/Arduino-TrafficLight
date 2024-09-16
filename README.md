@@ -22,19 +22,75 @@ Ce projet simule un feu tricolore avec une carte Arduino. Il utilise la fonction
 - La librairie [TraficLight](https://github.com/PetitVulcan/ArduinoLibs-TrafficLight) permet de créer des instances de feu et d'organiser la syncronisation des feux d'un carrefour entre deux rues.
 
 ## Matériel nécessaire
-
-- Arduino Nano ou similaire
-- 6 LEDs (2 rouges, 2 jaunes, 2 vertes)
-- Résistances (150Ω)
-- Breadboard et fils de connexion
+<table>
+  <tr>
+    <td>
+      <b>Qt</b>
+    </td>
+    <td>
+     <b>Désignation</b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+     Arduino Uno (ou similaire)
+    </td>
+  </tr>
+   <tr>
+    <td>
+      16
+    </td>
+    <td>
+     LEDs (4 rouges, 4 jaunes, 4 vertes)
+    </td>
+  </tr>
+   <tr>
+    <td>
+      16
+    </td>
+    <td>
+     Résistances (150Ω)
+    </td>
+  </tr>
+   <tr>
+    <td>
+      1
+    </td>
+    <td>
+     Breadboard 
+    </td>
+  </tr>
+   <tr>
+    <td>
+      20
+    </td>
+    <td>
+     Fils de connexion 
+    </td>
+  </tr>
+</table>
 
 ## Schéma de câblage
-Feu1
-- LED orange : Broche 2
-- LED verte : Broche 3
-- LED rouge : Broche 4
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/Pictures/ElectricalSchematic.png" alt="Scéma Electrique" height="400"/>
+    </td>
+    <td>
+     <img src="https://github.com/PetitVulcan/Arduino-TrafficLight/blob/main/Pictures/WiringDiagram.png" alt="Aperçu du modèle 3D" height="400"/>
+    </td>
+  </tr>
+</table>
 
-Feu2
+Rue 1
+- LED orange : Broche 3
+- LED verte : Broche 4
+- LED rouge : Broche 5
+
+Rue 2
 - LED orange : Broche 8
 - LED verte : Broche 9
 - LED rouge : Broche 10
@@ -68,7 +124,7 @@ Voici le code utilisé pour gérer le feu tricolore :
 
 ```cpp
 // Definir les pins pour les LED des deux feux tricolores et les logs d'état dans le moniteur serie
-TrafficLight road1(2, 3, 4, true);  // Rue 1
+TrafficLight road1(3, 4, 5, true);  // Rue 1
 TrafficLight road2(8, 9, 10, true); // Rue 2
 
 // Duree des differentes phases
